@@ -1,0 +1,21 @@
+{
+  "DisplayName": "Main",
+  "Tooltip": null,
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "in_config_Path",
+      "DisplayName": "in_config_Path",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "C:\\Users\\duc.dang\\Desktop\\Darea\\Config_Sklep_Internetowy.xlsx",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    }
+  ]
+}
