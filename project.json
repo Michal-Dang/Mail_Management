@@ -1,5 +1,5 @@
 {
-  "name": "Dorea_Mails_Management",
+  "name": "Darea_Mails_Management",
   "projectId": "fea6b306-9cc0-4985-84d6-e513987ac631",
   "description": "",
   "main": "Main.xaml",
@@ -15,7 +15,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "25.0.172.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.2",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -38,7 +38,6 @@
     "projectProfile": "Developement",
     "outputType": "Process",
     "libraryOptions": {
-      "includeOriginalXaml": false,
       "privateWorkflows": []
     },
     "processOptions": {
