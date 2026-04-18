@@ -1,5 +1,9 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Mail_management" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umae="clr-namespace:UiPath.Mail.Activities.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Mail_management" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umae="clr-namespace:UiPath.Mail.Activities.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
+    <x:Property Name="in_realization_regex" Type="InArgument(x:String)" />
+    <x:Property Name="in_remove_regex" Type="InArgument(x:String)" />
+    <x:Property Name="in_add_regex" Type="InArgument(x:String)" />
+    <x:Property Name="in_edit_regex" Type="InArgument(x:String)" />
     <x:Property Name="in_mail_photos" Type="InArgument(x:String)" />
     <x:Property Name="in_mail_attachments" Type="InArgument(x:String)" />
     <x:Property Name="out_mail_dt" Type="OutArgument(sd:DataTable)" />
@@ -60,6 +64,7 @@
       <x:String>UiPath.Platform.ResourceHandling</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
       <x:String>System.IO</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -129,9 +134,10 @@
       <AssemblyReference>System.IO.Packaging</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Mail_management" sap:VirtualizedContainerService.HintSize="2053,8899" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Mail_management" sap:VirtualizedContainerService.HintSize="1389,9814.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="status" />
       <Variable x:TypeArguments="x:String" Name="carrierName" />
@@ -146,22 +152,8 @@
       <Variable x:TypeArguments="snm:MailMessage" Name="MailMessage" />
       <Variable x:TypeArguments="x:String" Name="orderNumber" />
       <Variable x:TypeArguments="x:String" Name="attachments" />
-      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="attachments_list">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:String x:Key="SourceIdRef">SaveMailAttachments_1</x:String>
-            <x:String x:Key="SourcePropertyName">Attachments</x:String>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Variable>
-      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="photos_list">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:String x:Key="SourceIdRef">SaveMailAttachments_1</x:String>
-            <x:String x:Key="SourcePropertyName">Attachments</x:String>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Variable>
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="attachments_list" />
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="photos_list" />
       <Variable x:TypeArguments="x:String" Name="photos" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -169,32 +161,32 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="981,8876" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="882,9791.5" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BuildDataTable DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="947,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;From&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Body&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;OrderNumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;TrackingNumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;CarrierName&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Attachments&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;photos&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Task&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+      <ui:BuildDataTable DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="848,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ID&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;From&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Body&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;OrderNumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TrackingNumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;CarrierName&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Attachments&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;photos&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Task&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
         <ui:BuildDataTable.DataTable>
           <OutArgument x:TypeArguments="sd:DataTable">
             <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">out_mail_dt</CSharpReference>
           </OutArgument>
         </ui:BuildDataTable.DataTable>
       </ui:BuildDataTable>
-      <umab:OutlookApplicationCard Account="dareaonlineshop@outlook.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="947,8701" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_2">
+      <umab:OutlookApplicationCard Account="dareaonlineshop@outlook.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="848,9616.5" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_2">
         <umab:OutlookApplicationCard.Body>
           <ActivityAction x:TypeArguments="um:IMailQuickHandle">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Outlook" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="913,8494" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="814,9407.5" sap2010:WorkflowViewState.IdRef="Sequence_17">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" ConnectionMode="LegacyConfiguration" DisplayName="Get Outlook Desktop Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="879,123" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MarkAsRead="True" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Top="50" UseISConnection="False">
+              <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" ConnectionMode="LegacyConfiguration" DisplayName="Get Outlook Desktop Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="780,123.5" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MarkAsRead="True" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Top="50" UseISConnection="False">
                 <ui:GetOutlookMailMessages.ConnectionDetailsBackupSlot>
                   <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
                     <usau:BackupSlot.BackupValues>
@@ -219,14 +211,14 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:GetOutlookMailMessages>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="879,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="780,176" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
                 <ui:LogMessage.Message>
                   <InArgument x:TypeArguments="x:Object">
                     <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"Pobrano: " + mailList.Count.ToString() + " maili."</CSharpValue>
                   </InArgument>
                 </ui:LogMessage.Message>
               </ui:LogMessage>
-              <umab:ForEachEmailX MailFilter="{x:Null}" DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="879,8136" sap2010:WorkflowViewState.IdRef="ForEachEmailX_2" IncludeSubfolders="False" NumberOfEmailsLimit="1000" RetrieveAttachments="False" UnreadOnly="False" WithAttachmentsOnly="False">
+              <umab:ForEachEmailX MailFilter="{x:Null}" DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="780,9048" sap2010:WorkflowViewState.IdRef="ForEachEmailX_2" IncludeSubfolders="False" NumberOfEmailsLimit="1000" RetrieveAttachments="False" UnreadOnly="False" WithAttachmentsOnly="False">
                 <umab:ForEachEmailX.Body>
                   <ActivityAction x:TypeArguments="snm:MailMessage, x:Int32">
                     <ActivityAction.Argument1>
@@ -235,16 +227,23 @@
                     <ActivityAction.Argument2>
                       <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                     </ActivityAction.Argument2>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="845,7848" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="746,8755" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="subject" />
+                        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="addMatches" />
+                        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="realizationMatches" />
+                        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="editMatches" />
+                        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="removeMatches" />
+                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="811,175" sap2010:WorkflowViewState.IdRef="Assign_16">
+                      <Assign sap:VirtualizedContainerService.HintSize="712,176" sap2010:WorkflowViewState.IdRef="Assign_16">
                         <Assign.To>
                           <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                            <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">attachments_list</CSharpReference>
+                            <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_145">attachments_list</CSharpReference>
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
@@ -253,10 +252,10 @@
                           </InArgument>
                         </Assign.Value>
                       </Assign>
-                      <Assign sap:VirtualizedContainerService.HintSize="811,175" sap2010:WorkflowViewState.IdRef="Assign_17">
+                      <Assign sap:VirtualizedContainerService.HintSize="712,176" sap2010:WorkflowViewState.IdRef="Assign_17">
                         <Assign.To>
                           <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">
-                            <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_32">photos_list</CSharpReference>
+                            <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_146">photos_list</CSharpReference>
                           </OutArgument>
                         </Assign.To>
                         <Assign.Value>
@@ -265,7 +264,7 @@
                           </InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="811,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="712,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                         <ui:CommentOut.Body>
                           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,417" sap2010:WorkflowViewState.IdRef="Sequence_25">
                             <sap:WorkflowViewStateService.ViewState>
@@ -384,7 +383,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:CommentOut>
-                      <Assign sap:VirtualizedContainerService.HintSize="811,175" sap2010:WorkflowViewState.IdRef="Assign_18">
+                      <Assign sap:VirtualizedContainerService.HintSize="712,176" sap2010:WorkflowViewState.IdRef="Assign_18">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">
                             <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_106">body</CSharpReference>
@@ -396,26 +395,106 @@
                           </InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:IfElseIfV2 DisplayName="Else If" sap:VirtualizedContainerService.HintSize="811,7206" sap2010:WorkflowViewState.IdRef="IfElseIfV2_3">
+                      <Assign sap:VirtualizedContainerService.HintSize="712,176" sap2010:WorkflowViewState.IdRef="Assign_22">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">
+                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_163">subject</CSharpReference>
+                          </OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_154">CurrentMail.Subject</CSharpValue>
+                          </InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:Matches FirstMatch="{x:Null}" BuilderPattern="(?:in_add_regex)+" DisplayName="Add Find Matching Patterns" sap:VirtualizedContainerService.HintSize="712,92" sap2010:WorkflowViewState.IdRef="Matches_1" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;in_add_regex&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" RegexOption="IgnoreCase, Compiled">
+                        <ui:Matches.Input>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_150">subject</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Input>
+                        <ui:Matches.Pattern>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_155">in_add_regex</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Pattern>
+                        <ui:Matches.Result>
+                          <OutArgument x:TypeArguments="scg:IEnumerable(str:Match)">
+                            <CSharpReference x:TypeArguments="scg:IEnumerable(str:Match)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_151">addMatches</CSharpReference>
+                          </OutArgument>
+                        </ui:Matches.Result>
+                      </ui:Matches>
+                      <ui:Matches FirstMatch="{x:Null}" BuilderPattern="(?:\b(edyt|edyc|zmian|podm)\b)+" DisplayName="Edit Find Matching Patterns" sap:VirtualizedContainerService.HintSize="712,92" sap2010:WorkflowViewState.IdRef="Matches_2" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;\\b(edyt|edyc|zmian|podm)\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" RegexOption="IgnoreCase, Compiled">
+                        <ui:Matches.Input>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_151">subject</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Input>
+                        <ui:Matches.Pattern>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_160">in_edit_regex</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Pattern>
+                        <ui:Matches.Result>
+                          <OutArgument x:TypeArguments="scg:IEnumerable(str:Match)">
+                            <CSharpReference x:TypeArguments="scg:IEnumerable(str:Match)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_160">editMatches</CSharpReference>
+                          </OutArgument>
+                        </ui:Matches.Result>
+                      </ui:Matches>
+                      <ui:Matches FirstMatch="{x:Null}" BuilderPattern="(?:\b(dodaj|usu||skasow|pozbyc)\b)+" DisplayName="Remove  Find Matching Patterns" sap:VirtualizedContainerService.HintSize="712,92" sap2010:WorkflowViewState.IdRef="Matches_3" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;\\b(dodaj|usu||skasow|pozbyc)\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" RegexOption="IgnoreCase, Compiled">
+                        <ui:Matches.Input>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_152">subject</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Input>
+                        <ui:Matches.Pattern>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_157">in_remove_regex</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Pattern>
+                        <ui:Matches.Result>
+                          <OutArgument x:TypeArguments="scg:IEnumerable(str:Match)">
+                            <CSharpReference x:TypeArguments="scg:IEnumerable(str:Match)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_164">removeMatches</CSharpReference>
+                          </OutArgument>
+                        </ui:Matches.Result>
+                      </ui:Matches>
+                      <ui:Matches FirstMatch="{x:Null}" BuilderPattern="(?:\b(realizowa)\b)+" DisplayName="Realization Find Matching Patterns" sap:VirtualizedContainerService.HintSize="712,92" sap2010:WorkflowViewState.IdRef="Matches_4" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;\\b(realizowa)\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;+&quot;,&quot;QuantifierID&quot;:&quot;OOM&quot;,&quot;QuantifierName&quot;:&quot;At least one (1 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" RegexOption="IgnoreCase, Compiled">
+                        <ui:Matches.Input>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_153">subject</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Input>
+                        <ui:Matches.Pattern>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_158">in_realization_regex</CSharpValue>
+                          </InArgument>
+                        </ui:Matches.Pattern>
+                        <ui:Matches.Result>
+                          <OutArgument x:TypeArguments="scg:IEnumerable(str:Match)">
+                            <CSharpReference x:TypeArguments="scg:IEnumerable(str:Match)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_165">realizationMatches</CSharpReference>
+                          </OutArgument>
+                        </ui:Matches.Result>
+                      </ui:Matches>
+                      <ui:IfElseIfV2 DisplayName="Else If" sap:VirtualizedContainerService.HintSize="712,7566" sap2010:WorkflowViewState.IdRef="IfElseIfV2_3">
                         <ui:IfElseIfV2.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">!string.IsNullOrEmpty(body) &amp;&amp; body.IndexOf("status", StringComparison.OrdinalIgnoreCase) &gt;= 0</CSharpValue>
                           </InArgument>
                         </ui:IfElseIfV2.Condition>
                         <ui:IfElseIfV2.Else>
-                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="809,951" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="710,930" sap2010:WorkflowViewState.IdRef="Sequence_15">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Move to folder &quot;Others&quot;" sap:VirtualizedContainerService.HintSize="775,887" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                            <Sequence DisplayName="Move to folder &quot;Others&quot;" sap:VirtualizedContainerService.HintSize="676,870" sap2010:WorkflowViewState.IdRef="Sequence_30">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,401" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,397.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
                                 <ui:MultipleAssign.AssignOperations>
                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_61">
@@ -507,7 +586,7 @@
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_83">
                                       <ui:AssignOperation.To>
                                         <OutArgument x:TypeArguments="x:String">
-                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_105">status</CSharpReference>
+                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_159">status</CSharpReference>
                                         </OutArgument>
                                       </ui:AssignOperation.To>
                                       <ui:AssignOperation.Value>
@@ -517,7 +596,7 @@
                                   </scg:List>
                                 </ui:MultipleAssign.AssignOperations>
                               </ui:MultipleAssign>
-                              <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="479,225" sap2010:WorkflowViewState.IdRef="AddDataRow_11">
+                              <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478,222.5" sap2010:WorkflowViewState.IdRef="AddDataRow_11">
                                 <ui:AddDataRow.ArrayRow>
                                   <InArgument x:TypeArguments="s:Object[]">
                                     <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">new Object[] { CurrentMail.Headers["Message-ID"], CurrentMail.From.ToString(), CurrentMail.Subject, CurrentMail.Body, orderNumber,trackingNumber,carrierName, attachments, photos, task, status}</CSharpValue>
@@ -529,7 +608,7 @@
                                   </InOutArgument>
                                 </ui:AddDataRow.DataTable>
                               </ui:AddDataRow>
-                              <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Desktop Mail Message" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1">
+                              <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Desktop Mail Message" sap:VirtualizedContainerService.HintSize="478,167" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1">
                                 <ui:MoveOutlookMessage.MailFolder>
                                   <InArgument x:TypeArguments="x:String">
                                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">in_mail_folder_others</CSharpValue>
@@ -549,25 +628,25 @@
                             <ui:IfElseIfBlock BlockType="ElseIf" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_5">
                               <ui:IfElseIfBlock.Condition>
                                 <InArgument x:TypeArguments="x:Boolean">
-                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">!string.IsNullOrEmpty(body) &amp;&amp; body.IndexOf("Realizacja zamówienia", StringComparison.OrdinalIgnoreCase) &gt;= 0</CSharpValue>
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_145">realizationMatches.Count() &gt; 0</CSharpValue>
                                 </InArgument>
                               </ui:IfElseIfBlock.Condition>
                               <ui:IfElseIfBlock.Then>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="809,1963" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="710,1916.5" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="775,1683" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="676,1643" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                                     <TryCatch.Try>
-                                      <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="547,456" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                      <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="546,448.5" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="513,392" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="512,388.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                                           <ui:MultipleAssign.AssignOperations>
                                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_52">
@@ -667,7 +746,7 @@
                                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_80">
                                                 <ui:AssignOperation.To>
                                                   <OutArgument x:TypeArguments="x:String">
-                                                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_102">status</CSharpReference>
+                                                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_153">status</CSharpReference>
                                                   </OutArgument>
                                                 </ui:AssignOperation.To>
                                                 <ui:AssignOperation.Value>
@@ -685,19 +764,19 @@
                                           <ActivityAction.Argument>
                                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="547,951" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="546,930" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Move to folder &quot;Others&quot;" sap:VirtualizedContainerService.HintSize="513,887" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                            <Sequence DisplayName="Move to folder &quot;Others&quot;" sap:VirtualizedContainerService.HintSize="512,870" sap2010:WorkflowViewState.IdRef="Sequence_31">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,401" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+                                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,397.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
                                                 <ui:MultipleAssign.AssignOperations>
                                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_70">
@@ -789,7 +868,7 @@
                                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_78">
                                                       <ui:AssignOperation.To>
                                                         <OutArgument x:TypeArguments="x:String">
-                                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_100">status</CSharpReference>
+                                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_154">status</CSharpReference>
                                                         </OutArgument>
                                                       </ui:AssignOperation.To>
                                                       <ui:AssignOperation.Value>
@@ -799,7 +878,7 @@
                                                   </scg:List>
                                                 </ui:MultipleAssign.AssignOperations>
                                               </ui:MultipleAssign>
-                                              <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="479,225" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
+                                              <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478,222.5" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
                                                 <ui:AddDataRow.ArrayRow>
                                                   <InArgument x:TypeArguments="s:Object[]">
                                                     <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_123">new Object[] { CurrentMail.Headers["Message-ID"], CurrentMail.From.ToString(), CurrentMail.Subject, CurrentMail.Body, orderNumber,trackingNumber,carrierName, attachments, photos, task, status}</CSharpValue>
@@ -811,7 +890,7 @@
                                                   </InOutArgument>
                                                 </ui:AddDataRow.DataTable>
                                               </ui:AddDataRow>
-                                              <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Desktop Mail Message" sap:VirtualizedContainerService.HintSize="479,170" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_2">
+                                              <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Desktop Mail Message" sap:VirtualizedContainerService.HintSize="478,167" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_2">
                                                 <ui:MoveOutlookMessage.MailFolder>
                                                   <InArgument x:TypeArguments="x:String">
                                                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_110">in_mail_folder_others</CSharpValue>
@@ -829,7 +908,7 @@
                                       </Catch>
                                     </TryCatch.Catches>
                                     <TryCatch.Finally>
-                                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="547,94" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="546,90.5" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -838,7 +917,7 @@
                                       </Sequence>
                                     </TryCatch.Finally>
                                   </TryCatch>
-                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="775,216" sap2010:WorkflowViewState.IdRef="AddDataRow_8">
+                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="676,213.5" sap2010:WorkflowViewState.IdRef="AddDataRow_8">
                                     <ui:AddDataRow.ArrayRow>
                                       <InArgument x:TypeArguments="s:Object[]">
                                         <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">new Object[] { CurrentMail.Headers["Message-ID"], CurrentMail.From.ToString(), CurrentMail.Subject, CurrentMail.Body, orderNumber,trackingNumber,carrierName, attachments, photos, task, status}</CSharpValue>
@@ -860,13 +939,13 @@
                                 </InArgument>
                               </ui:IfElseIfBlock.Condition>
                               <ui:IfElseIfBlock.Then>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="809,681" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="710,671" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="775,401" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="676,397.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
                                     <ui:MultipleAssign.AssignOperations>
                                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
@@ -958,7 +1037,7 @@
                                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_81">
                                           <ui:AssignOperation.To>
                                             <OutArgument x:TypeArguments="x:String">
-                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_103">status</CSharpReference>
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_155">status</CSharpReference>
                                             </OutArgument>
                                           </ui:AssignOperation.To>
                                           <ui:AssignOperation.Value>
@@ -968,7 +1047,7 @@
                                       </scg:List>
                                     </ui:MultipleAssign.AssignOperations>
                                   </ui:MultipleAssign>
-                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="775,216" sap2010:WorkflowViewState.IdRef="AddDataRow_9">
+                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="676,213.5" sap2010:WorkflowViewState.IdRef="AddDataRow_9">
                                     <ui:AddDataRow.ArrayRow>
                                       <InArgument x:TypeArguments="s:Object[]">
                                         <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_125">new Object[] { CurrentMail.Headers["Message-ID"], CurrentMail.From.ToString(), CurrentMail.Subject, CurrentMail.Body, orderNumber,trackingNumber,carrierName, attachments, photos, task, status}</CSharpValue>
@@ -986,17 +1065,17 @@
                             <ui:IfElseIfBlock BlockType="ElseIf" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_8">
                               <ui:IfElseIfBlock.Condition>
                                 <InArgument x:TypeArguments="x:Boolean">
-                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">!string.IsNullOrEmpty(body) &amp;&amp; body.IndexOf("doda", StringComparison.OrdinalIgnoreCase) &gt;= 0</CSharpValue>
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_146">addMatches.Count() &gt; 0</CSharpValue>
                                 </InArgument>
                               </ui:IfElseIfBlock.Condition>
                               <ui:IfElseIfBlock.Then>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="809,1501" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="710,1480" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="775,401" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="676,397.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
                                     <ui:MultipleAssign.AssignOperations>
                                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_43">
@@ -1088,7 +1167,7 @@
                                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_82">
                                           <ui:AssignOperation.To>
                                             <OutArgument x:TypeArguments="x:String">
-                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_104">status</CSharpReference>
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_156">status</CSharpReference>
                                             </OutArgument>
                                           </ui:AssignOperation.To>
                                           <ui:AssignOperation.Value>
@@ -1098,7 +1177,7 @@
                                       </scg:List>
                                     </ui:MultipleAssign.AssignOperations>
                                   </ui:MultipleAssign>
-                                  <ui:SaveMailAttachments ResourceAttachments="{x:Null}" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter=".xls" sap:VirtualizedContainerService.HintSize="775,231" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" OverwriteExisting="True">
+                                  <ui:SaveMailAttachments ResourceAttachments="{x:Null}" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter=".xls" sap:VirtualizedContainerService.HintSize="676,228.5" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" OverwriteExisting="True">
                                     <ui:SaveMailAttachments.Attachments>
                                       <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">
                                         <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">attachments_list</CSharpReference>
@@ -1115,19 +1194,19 @@
                                       </InArgument>
                                     </ui:SaveMailAttachments.Message>
                                   </ui:SaveMailAttachments>
-                                  <Assign sap:VirtualizedContainerService.HintSize="775,179" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                  <Assign sap:VirtualizedContainerService.HintSize="676,176" sap2010:WorkflowViewState.IdRef="Assign_19">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">
-                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_107">attachments</CSharpReference>
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_149">attachments</CSharpReference>
                                       </OutArgument>
                                     </Assign.To>
                                     <Assign.Value>
                                       <InArgument x:TypeArguments="x:String">
-                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_113">string.Join(", ", attachments_list ?? Enumerable.Empty&lt;string&gt;())</CSharpValue>
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_139">string.Join(", ", attachments_list ?? Enumerable.Empty&lt;string&gt;())</CSharpValue>
                                       </InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ui:SaveMailAttachments ResourceAttachments="{x:Null}" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter=".jpg" sap:VirtualizedContainerService.HintSize="775,231" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_6" OverwriteExisting="True">
+                                  <ui:SaveMailAttachments ResourceAttachments="{x:Null}" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter=".jpg" sap:VirtualizedContainerService.HintSize="676,228.5" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_6" OverwriteExisting="True">
                                     <ui:SaveMailAttachments.Attachments>
                                       <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">
                                         <CSharpReference x:TypeArguments="scg:IEnumerable(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">photos_list</CSharpReference>
@@ -1144,7 +1223,7 @@
                                       </InArgument>
                                     </ui:SaveMailAttachments.Message>
                                   </ui:SaveMailAttachments>
-                                  <Assign sap:VirtualizedContainerService.HintSize="775,179" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                  <Assign sap:VirtualizedContainerService.HintSize="676,176" sap2010:WorkflowViewState.IdRef="Assign_20">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">
                                         <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_108">photos</CSharpReference>
@@ -1156,7 +1235,7 @@
                                       </InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="775,216" sap2010:WorkflowViewState.IdRef="AddDataRow_10">
+                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="676,213.5" sap2010:WorkflowViewState.IdRef="AddDataRow_10">
                                     <ui:AddDataRow.ArrayRow>
                                       <InArgument x:TypeArguments="s:Object[]">
                                         <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_126">new Object[] { CurrentMail.Headers["Message-ID"], CurrentMail.From.ToString(), CurrentMail.Subject, CurrentMail.Body, orderNumber,trackingNumber,carrierName, attachments, photos, task, status}</CSharpValue>
@@ -1174,17 +1253,17 @@
                             <ui:IfElseIfBlock BlockType="ElseIf" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_11">
                               <ui:IfElseIfBlock.Condition>
                                 <InArgument x:TypeArguments="x:Boolean">
-                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">!string.IsNullOrEmpty(body) &amp;&amp; body.IndexOf("usu", StringComparison.OrdinalIgnoreCase) &gt;= 0</CSharpValue>
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_147">removeMatches.Count() &gt; 0</CSharpValue>
                                 </InArgument>
                               </ui:IfElseIfBlock.Condition>
                               <ui:IfElseIfBlock.Then>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="809,1091" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="710,1075.5" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="775,401" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="676,397.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
                                     <ui:MultipleAssign.AssignOperations>
                                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_84">
@@ -1276,7 +1355,7 @@
                                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_92">
                                           <ui:AssignOperation.To>
                                             <OutArgument x:TypeArguments="x:String">
-                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_122">status</CSharpReference>
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_157">status</CSharpReference>
                                             </OutArgument>
                                           </ui:AssignOperation.To>
                                           <ui:AssignOperation.Value>
@@ -1286,7 +1365,7 @@
                                       </scg:List>
                                     </ui:MultipleAssign.AssignOperations>
                                   </ui:MultipleAssign>
-                                  <ui:SaveMailAttachments Attachments="{x:Null}" ResourceAttachments="{x:Null}" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter=".xls" sap:VirtualizedContainerService.HintSize="775,231" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_7" OverwriteExisting="True">
+                                  <ui:SaveMailAttachments Attachments="{x:Null}" ResourceAttachments="{x:Null}" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter=".xls" sap:VirtualizedContainerService.HintSize="676,228.5" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_7" OverwriteExisting="True">
                                     <ui:SaveMailAttachments.FolderPath>
                                       <InArgument x:TypeArguments="x:String">
                                         <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">in_mail_attachments</CSharpValue>
@@ -1298,19 +1377,19 @@
                                       </InArgument>
                                     </ui:SaveMailAttachments.Message>
                                   </ui:SaveMailAttachments>
-                                  <Assign sap:VirtualizedContainerService.HintSize="775,179" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                  <Assign sap:VirtualizedContainerService.HintSize="676,176" sap2010:WorkflowViewState.IdRef="Assign_21">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">
-                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_123">attachments</CSharpReference>
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_150">attachments</CSharpReference>
                                       </OutArgument>
                                     </Assign.To>
                                     <Assign.Value>
                                       <InArgument x:TypeArguments="x:String">
-                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_132">string.Join(", ", attachments_list ?? Enumerable.Empty&lt;string&gt;())</CSharpValue>
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_140">string.Join(", ", attachments_list ?? Enumerable.Empty&lt;string&gt;())</CSharpValue>
                                       </InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="775,216" sap2010:WorkflowViewState.IdRef="AddDataRow_12">
+                                  <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="676,213.5" sap2010:WorkflowViewState.IdRef="AddDataRow_12">
                                     <ui:AddDataRow.ArrayRow>
                                       <InArgument x:TypeArguments="s:Object[]">
                                         <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_133">new Object[] { CurrentMail.Headers["Message-ID"], CurrentMail.From.ToString(), CurrentMail.Subject, CurrentMail.Body, orderNumber,trackingNumber,carrierName, attachments, photos, task, status}</CSharpValue>
@@ -1325,16 +1404,134 @@
                                 </Sequence>
                               </ui:IfElseIfBlock.Then>
                             </ui:IfElseIfBlock>
+                            <ui:IfElseIfBlock BlockType="ElseIf" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_14">
+                              <ui:IfElseIfBlock.Condition>
+                                <InArgument x:TypeArguments="x:Boolean">
+                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_148">editMatches.Count() &gt; 0</CSharpValue>
+                                </InArgument>
+                              </ui:IfElseIfBlock.Condition>
+                              <ui:IfElseIfBlock.Then>
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="710,448.5" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="676,388.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                                    <ui:MultipleAssign.AssignOperations>
+                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_93">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:Int32">
+                                              <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_125">startNum</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:Int32">-1</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_94">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:Int32">
+                                              <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_126">endNum</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:Int32">-1</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_95">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_127">orderNumber</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_135">body.ToString().Substring(body.ToString().IndexOf("#") + 1).Split(new char[] {' '}, StringSplitOptions.None)[0]</CSharpValue>
+                                            </InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_96">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_128">trackingNumber</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <Literal x:TypeArguments="x:String" Value="" />
+                                            </InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_97">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:Int32">
+                                              <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_129">startCarrier</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:Int32">-1</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_98">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:Int32">
+                                              <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_130">endCarrier</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:Int32">-1</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_99">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_131">carrierName</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">
+                                              <Literal x:TypeArguments="x:String" Value="" />
+                                            </InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_100">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_132">task</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">Edit products</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_101">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">
+                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_158">status</CSharpReference>
+                                            </OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">Added to Queue</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                      </scg:List>
+                                    </ui:MultipleAssign.AssignOperations>
+                                  </ui:MultipleAssign>
+                                </Sequence>
+                              </ui:IfElseIfBlock.Then>
+                            </ui:IfElseIfBlock>
                           </sc:BindingList>
                         </ui:IfElseIfV2.ElseIfs>
                         <ui:IfElseIfV2.Then>
-                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="809,681" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="710,671" sap2010:WorkflowViewState.IdRef="Sequence_14">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="775,401" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="676,397.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                               <ui:MultipleAssign.AssignOperations>
                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -1426,7 +1623,7 @@
                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_79">
                                     <ui:AssignOperation.To>
                                       <OutArgument x:TypeArguments="x:String">
-                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_101">status</CSharpReference>
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_152">status</CSharpReference>
                                       </OutArgument>
                                     </ui:AssignOperation.To>
                                     <ui:AssignOperation.Value>
@@ -1436,7 +1633,7 @@
                                 </scg:List>
                               </ui:MultipleAssign.AssignOperations>
                             </ui:MultipleAssign>
-                            <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="775,216" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                            <ui:AddDataRow DataRow="{x:Null}" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="676,213.5" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
                               <ui:AddDataRow.ArrayRow>
                                 <InArgument x:TypeArguments="s:Object[]">
                                   <CSharpValue x:TypeArguments="s:Object[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">new Object[] { CurrentMail.Headers["Message-ID"], CurrentMail.From.ToString(), CurrentMail.Subject, CurrentMail.Body, orderNumber,trackingNumber,carrierName, attachments, photos, task, status}</CSharpValue>

@@ -143,7 +143,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Add_New_Products" sap:VirtualizedContainerService.HintSize="1691,13416" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Add_New_Products" sap:VirtualizedContainerService.HintSize="1594,13213.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="final_products_dt" />
       <Variable x:TypeArguments="s:String[]" Name="quantities" />
@@ -155,34 +155,34 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="1594,13393" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence sap:VirtualizedContainerService.HintSize="1594,13190.5" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge Zaloguj się w - Shopify" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,13310" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge Zaloguj się w - Shopify" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,13107.5" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,13065" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,12826" sap2010:WorkflowViewState.IdRef="Sequence_11">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,2325" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Timeout="10" Version="V5">
+              <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,2265.5" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Timeout="10" Version="V5">
                 <uix:NCheckState.IfExists>
-                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,240" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,233" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
                       <ui:LogMessage.Message>
                         <InArgument x:TypeArguments="x:Object">
                           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">
@@ -195,14 +195,14 @@
                   </Sequence>
                 </uix:NCheckState.IfExists>
                 <uix:NCheckState.IfNotExists>
-                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="988,2027" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="988,1973.5" sap2010:WorkflowViewState.IdRef="Sequence_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1" DisplayName="Type Into 'E-mail'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,296" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1" DisplayName="Type Into 'E-mail'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,291" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="accounts.shopify.com/lookup" ContentHash="tqZiqt85S06QhmuUw6NB-g" DesignTimeRectangle="770, 488, 396, 38" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='account_email' tag='INPUT' /&gt;" Guid="9c2efa00-fe9e-4a54-a316-17632c99c3a5" InformativeScreenshot="ed0cc4374b0c8c34236037c6d4bb0d39.png" IsResponsive="True" Reference="t9abKaAJZkSt2XHEiwb6IQ/2dEmQvUhik6KxiCB8LjPPw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Zaloguj się w - Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -231,7 +231,7 @@
                         </uix:VerifyExecutionTypeIntoOptions>
                       </uix:NTypeInto.VerifyOptions>
                     </uix:NTypeInto>
-                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Enter" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,259" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Enter" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
                       <uix:NKeyboardShortcuts.VerifyOptions>
                         <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
                           <uix:VerifyExecutionOptions.Retry>
@@ -249,7 +249,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NKeyboardShortcuts>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Hasło'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,296" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Hasło'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,291" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="accounts.shopify.com/login" ContentHash="COdACpmInUGBiHDrailvng" DesignTimeRectangle="771, 550, 362, 38" ElementType="InputBoxPassword" FuzzySelectorArgument="&lt;webctrl id='account_password' tag='INPUT' type='password' class='ui-password__input next-input next-input--invisible js-password-input transferable-input' aaname='Hasło' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="c8c3bf5f-e88d-4069-a9be-8b2f31091adb" InformativeScreenshot="adc4057ed58d4212eac3000f874060e9.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/iw6fzWrMvE6eypt-vO-xQQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Shopify' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -275,7 +275,7 @@
                         </uix:VerifyExecutionTypeIntoOptions>
                       </uix:NTypeInto.VerifyOptions>
                     </uix:NTypeInto>
-                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Enter" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,259" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Enter" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
                       <uix:NKeyboardShortcuts.VerifyOptions>
                         <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
                           <uix:VerifyExecutionOptions.Retry>
@@ -293,7 +293,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NKeyboardShortcuts>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'SPAN'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,233" sap2010:WorkflowViewState.IdRef="NClick_19" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'SPAN'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,228" sap2010:WorkflowViewState.IdRef="NClick_19" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="accounts.shopify.com/enroll-passkeys" CVScreenId="af338c1d-7c2a-4c9f-bc19-c0f667ab90ef" ContentHash="dUxCUb9TrEO-0sagnlbqig" CvElementArea="765, 674, 404, 50" CvTextArea="937, 691, 61, 13" CvTextArgument="Nie teraz" CvType="Button" DesignTimeRectangle="938, 688, 60, 20" FullSelectorArgument="&lt;webctrl tag='I-BUTTON' type='submit' /&gt;&lt;webctrl shadowhostid='' tag='SPAN' /&gt;" Guid="e0548ec9-c076-4a10-a654-178115a95e15" InformativeScreenshot="323f8843c860c5e42e996e0346920021.png" Reference="oTL5qaUQ5UOqYtxaCAMveA/8RTueHHBz0mZFuXRAEdkDA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Utwórz klucz dostępu' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                       </uix:NClick.Target>
@@ -308,15 +308,15 @@
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,618" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                    <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,601.5" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                       <uix:NCheckState.IfExists>
-                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,240" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,233" sap2010:WorkflowViewState.IdRef="Sequence_14">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
                             <ui:LogMessage.Message>
                               <InArgument x:TypeArguments="x:Object">
                                 <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">
@@ -329,20 +329,20 @@
                         </Sequence>
                       </uix:NCheckState.IfExists>
                       <uix:NCheckState.IfNotExists>
-                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,367" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,356.5" sap2010:WorkflowViewState.IdRef="Sequence_15">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,181" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,178" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error">
                             <ui:LogMessage.Message>
                               <InArgument x:TypeArguments="x:Object">
                                 <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"Log in FAILED"</CSharpValue>
                               </InArgument>
                             </ui:LogMessage.Message>
                           </ui:LogMessage>
-                          <Throw sap:VirtualizedContainerService.HintSize="416,120" sap2010:WorkflowViewState.IdRef="Throw_1">
+                          <Throw sap:VirtualizedContainerService.HintSize="416,116.5" sap2010:WorkflowViewState.IdRef="Throw_1">
                             <InArgument x:TypeArguments="s:Exception">
                               <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">new Exception("Cannot log in to the website - pls check credentials")</CSharpValue>
                             </InArgument>
@@ -365,14 +365,14 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NCheckState>
-              <Sequence DisplayName="Add Products" sap:VirtualizedContainerService.HintSize="1492,10674" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Add Products" sap:VirtualizedContainerService.HintSize="1492,10498.5" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="1024,179" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign sap:VirtualizedContainerService.HintSize="1024,176" sap2010:WorkflowViewState.IdRef="Assign_5">
                   <Assign.To>
                     <OutArgument x:TypeArguments="sd:DataTable">
                       <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">final_products_dt</CSharpReference>
@@ -384,34 +384,34 @@
                     </InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:AddDataColumn x:TypeArguments="x:Boolean" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Czy produkt zostal dodany?" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="1024,225" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2">
+                <ui:AddDataColumn x:TypeArguments="x:Boolean" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Czy produkt zostal dodany?" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="1024,222.5" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2">
                   <ui:AddDataColumn.DataTable>
                     <InArgument x:TypeArguments="sd:DataTable">
                       <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">final_products_dt</CSharpValue>
                     </InArgument>
                   </ui:AddDataColumn.DataTable>
                 </ui:AddDataColumn>
-                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1024,10175" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1024,10013" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                   <ui:ForEachRow.Body>
                     <ActivityAction x:TypeArguments="sd:DataRow">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1022,9996" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1022,9837" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="988,179" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="988,178" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info">
                           <ui:LogMessage.Message>
                             <InArgument x:TypeArguments="x:Object">
                               <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">"Adding product: "+CurrentRow["Tytuł"].ToString()</CSharpValue>
                             </InArgument>
                           </ui:LogMessage.Message>
                         </ui:LogMessage>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Produkty'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,233" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Produkty'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,228" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce" ContentHash="QBId-gW--0OSlFveL6-MSw" DesignTimeRectangle="60, 257, 57, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Produkty' tag='SPAN' /&gt;" Guid="1e78a763-25fb-41d2-b900-cb4b03829c86" InformativeScreenshot="01b6fd89b516f109a67e353208254a8d.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/3LPlz75O2k2vxpyRbaVb2A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Strona główna · Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                           </uix:NClick.Target>
@@ -426,7 +426,7 @@
                             </uix:VerifyExecutionOptions>
                           </uix:NClick.VerifyOptions>
                         </uix:NClick>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Dodaj produkt'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,233" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Dodaj produkt'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,228" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products" ContentHash="NKXaUfQ8V0y8OUOSbVGX5Q" DesignTimeRectangle="1814, 205, 82, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Dodaj produkt' tag='SPAN' /&gt;" Guid="e82abf70-1c8e-4423-80f9-c353aad9cfd8" InformativeScreenshot="3f92cfef0046e9a2e148993eb8f6958e.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/eIOkMJcHV0mYAqZFKedB6g" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                           </uix:NClick.Target>
@@ -441,12 +441,12 @@
                             </uix:VerifyExecutionOptions>
                           </uix:NClick.VerifyOptions>
                         </uix:NClick>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Tytuł'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,296" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Tytuł'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,291" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="No-_Q8HtWEqhncJ6Qz7idw" DesignTimeRectangle="616, 279, 601, 32" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id=':r58:' tag='INPUT' type='text' class='Polaris-TextField__Input' placeholder='Koszulka z krótkim rękawem' aaname='Tytuł' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="ba45a982-2d5f-4bdd-be69-77a2c04c4a53" InformativeScreenshot="9fe3bc6b214961d14da286d53fac1cb1.png" IsResponsive="True" Reference="t9abKaAJZkSt2XHEiwb6IQ/uBmzScR0LU-i_kFWJDyWkQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" CVScreenId="bcb6d4c3-34e4-4909-b49d-cf95c405baa2" ContentHash="4v3544p06Uusc7QBc5zTtw" CvElementArea="1872, 473, 1198, 69" CvType="InputBox" DesignTimeRectangle="1893, 489, 1155, 40" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='S-INTERNAL-TEXT-FIELD' /&gt;&lt;webctrl id='P0-0' shadowhostid='' tag='INPUT' type='text' class='' aaname='' matching:id='fuzzy' fuzzylevel:id='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="6b5b1228-785e-4ed5-8198-ea875b02bf46" InformativeScreenshot="8bd17541670840fa27be7f0244f3f22b.png" Reference="lafAS4q5aU-WWBd-m7gOCw/BL2NiSKqrUWZbUPrdOuRZw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                               <uix:TargetAnchorable.Anchors>
                                 <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                  <uix:Target DesignTimeRectangle="616, 255, 31, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='Polaris-Label__Text' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Tytuł' /&gt;" Guid="caa4e868-82e4-4fed-9e47-fbe57887c7b3" SearchSteps="FuzzySelector" />
+                                  <uix:Target CVScreenId="bcb6d4c3-34e4-4909-b49d-cf95c405baa2" CvTextArea="1865, 435, 68, 30" CvTextArgument="Tytul" CvType="Text" DesignTimeRectangle="1869, 433, 61, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='S-INTERNAL-TEXT-FIELD' /&gt;&lt;webctrl shadowhostid='' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='S-INTERNAL-TEXT-FIELD' /&gt;&lt;webctrl shadowhostid='' tag='SPAN' type='' class='label-content' aaname='Tytuł' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Tytuł' /&gt;" Guid="f3990c01-475f-423b-bd0c-e48e51f6a8b1" SearchSteps="Selector, FuzzySelector, CV" />
                                 </scg:List>
                               </uix:TargetAnchorable.Anchors>
                             </uix:TargetAnchorable>
@@ -467,12 +467,12 @@
                             </uix:VerifyExecutionTypeIntoOptions>
                           </uix:NTypeInto.VerifyOptions>
                         </uix:NTypeInto>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Opis'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,296" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Opis'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,291" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="HZsnv-F9OkOQJShXdiieCw" DesignTimeRectangle="617, 388, 599, 39" FullSelectorArgument="&lt;webctrl id='product-description-r59_ifr' tag='IFRAME' /&gt;&lt;webctrl tag='HTML' /&gt;" FuzzySelectorArgument="&lt;webctrl id='product-description-r59_ifr' tag='IFRAME' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl tag='HTML' type='' class='' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:text='p {&amp;#xA;    margin-top: 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  html, body {&amp;#xA;    cursor: text;&amp;#xA;  }&amp;#xA;&amp;#xA;  html {&amp;#xA;    font-size: 100%;&amp;#xA;  }&amp;#xA;&amp;#xA;  body {&amp;#xA;    overflow-x: auto;&amp;#xA;    font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;&amp;#xA;    font-size: 0.875rem; /* Maps to var(--p-font-size-350) */&amp;#xA;    line-height: 1.4;&amp;#xA;    color: #1f2124; /* Maps to var(--p-color-text) */&amp;#xA;    -webkit-font-smoothing: antialiased;&amp;#xA;    -moz-osx-font-smoothing: grayscale;&amp;#xA;    margin: 0.6rem 0.75rem;&amp;#xA;  }&amp;#xA;  @media only screen and (max-device-width: 40em) {&amp;#xA;    body {&amp;#xA;      font-size: 1rem;&amp;#xA;    }&amp;#xA;  }&amp;#xA;&amp;#xA;  /* The body y margin of 0.66rem works well for type, but is too tight for solid elements. Push them down a bit. */&amp;#xA;  body &amp;gt; img:first-child,&amp;#xA;  body &amp;gt; iframe:first-child {&amp;#xA;    margin-top: .15rem;&amp;#xA;  }&amp;#xA;&amp;#xA;  h1 {&amp;#xA;    line-height: 1.2;&amp;#xA;  }&amp;#xA;&amp;#xA;  h1 {&amp;#xA;    margin: 0 0 .75rem;&amp;#xA;  }&amp;#xA;&amp;#xA;  h2, h3, h4, h5, h6 {&amp;#xA;    margin: 0 0 .66rem 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  p, img, iframe {&amp;#xA;    margin: 0 0 1rem;&amp;#xA;  }&amp;#xA;&amp;#xA;  p &amp;gt; img,&amp;#xA;  p &amp;gt; iframe {&amp;#xA;    margin-bottom: 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  body &amp;gt; *:last-child {&amp;#xA;    margin-bottom: 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  img{&amp;#xA;    max-width: 100%;&amp;#xA;    height: auto;&amp;#xA;  }&amp;#xA;&amp;#xA;  iframe{&amp;#xA;    max-width: 100%;&amp;#xA;    height: auto;&amp;#xA;    aspect-ratio: 16/9;&amp;#xA;    border: none;&amp;#xA;  }&amp;#xA;&amp;#xA;  table {&amp;#xA;    width: 100%;&amp;#xA;  }&amp;#xA;&amp;#xA;  table, td, th {&amp;#xA;    border: 1px dashed #CCC;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body div.mce-resizehandle {&amp;#xA;    position: absolute;&amp;#xA;    border: 1px solid black;&amp;#xA;    box-sizing: content-box;&amp;#xA;    background: #FFF;&amp;#xA;    width: 7px;&amp;#xA;    height: 7px;&amp;#xA;    z-index: 10000;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body .mce-resizehandle:hover {&amp;#xA;    background: #000;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body img[data-mce-selected],&amp;#xA;  .mce-content-body hr[data-mce-selected] {&amp;#xA;    outline: 1px solid black;&amp;#xA;    resize: none;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body .mce-clonedresizable {&amp;#xA;    position: absolute;&amp;#xA;    outline: 1px dashed black;&amp;#xA;    opacity: .5;&amp;#xA;    filter: alpha(opacity=50);&amp;#xA;    z-index: 10000;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body .mce-resize-helper {&amp;#xA;    background: #555;&amp;#xA;    background: rgba(0,0,0,0.75);&amp;#xA;    border-radius: 3px;&amp;#xA;    border: 1px;&amp;#xA;    color: white;&amp;#xA;    display: none;&amp;#xA;    font-family: sans-serif;&amp;#xA;    font-size: 12px;&amp;#xA;    white-space: nowrap;&amp;#xA;    line-height: 14px;&amp;#xA;    margin: 5px 10px;&amp;#xA;    padding: 5px;&amp;#xA;    position: absolute;&amp;#xA;    z-index: 10001;&amp;#xA;  }&amp;#xA;&amp;#xA;  summary::marker {&amp;#xA;    cursor: pointer;&amp;#xA;  }' /&gt;" Guid="d7e604f1-aed4-49e5-8177-f8dde9327e2b" ImageBase64="" InformativeScreenshot="f796041a036af7f418a3bfb568c7745d.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/erStmdERNUqoUbu2Yz0fGw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="HZsnv-F9OkOQJShXdiieCw" DesignTimeRectangle="1870, 694, 1201, 78" FullSelectorArgument="&lt;webctrl id='product-description-r59_ifr' tag='IFRAME' /&gt;&lt;webctrl tag='HTML' /&gt;" FuzzySelectorArgument="&lt;webctrl id='product-description-r59_ifr' tag='IFRAME' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl tag='HTML' type='' class='' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:text='p {&amp;#xA;    margin-top: 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  html, body {&amp;#xA;    cursor: text;&amp;#xA;  }&amp;#xA;&amp;#xA;  html {&amp;#xA;    font-size: 100%;&amp;#xA;  }&amp;#xA;&amp;#xA;  body {&amp;#xA;    overflow-x: auto;&amp;#xA;    font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;&amp;#xA;    font-size: 0.875rem; /* Maps to var(--p-font-size-350) */&amp;#xA;    line-height: 1.4;&amp;#xA;    color: #1f2124; /* Maps to var(--p-color-text) */&amp;#xA;    -webkit-font-smoothing: antialiased;&amp;#xA;    -moz-osx-font-smoothing: grayscale;&amp;#xA;    margin: 0.6rem 0.75rem;&amp;#xA;  }&amp;#xA;  @media only screen and (max-device-width: 40em) {&amp;#xA;    body {&amp;#xA;      font-size: 1rem;&amp;#xA;    }&amp;#xA;  }&amp;#xA;&amp;#xA;  /* The body y margin of 0.66rem works well for type, but is too tight for solid elements. Push them down a bit. */&amp;#xA;  body &amp;gt; img:first-child,&amp;#xA;  body &amp;gt; iframe:first-child {&amp;#xA;    margin-top: .15rem;&amp;#xA;  }&amp;#xA;&amp;#xA;  h1 {&amp;#xA;    line-height: 1.2;&amp;#xA;  }&amp;#xA;&amp;#xA;  h1 {&amp;#xA;    margin: 0 0 .75rem;&amp;#xA;  }&amp;#xA;&amp;#xA;  h2, h3, h4, h5, h6 {&amp;#xA;    margin: 0 0 .66rem 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  p, img, iframe {&amp;#xA;    margin: 0 0 1rem;&amp;#xA;  }&amp;#xA;&amp;#xA;  p &amp;gt; img,&amp;#xA;  p &amp;gt; iframe {&amp;#xA;    margin-bottom: 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  body &amp;gt; *:last-child {&amp;#xA;    margin-bottom: 0;&amp;#xA;  }&amp;#xA;&amp;#xA;  img{&amp;#xA;    max-width: 100%;&amp;#xA;    height: auto;&amp;#xA;  }&amp;#xA;&amp;#xA;  iframe{&amp;#xA;    max-width: 100%;&amp;#xA;    height: auto;&amp;#xA;    aspect-ratio: 16/9;&amp;#xA;    border: none;&amp;#xA;  }&amp;#xA;&amp;#xA;  table {&amp;#xA;    width: 100%;&amp;#xA;  }&amp;#xA;&amp;#xA;  table, td, th {&amp;#xA;    border: 1px dashed #CCC;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body div.mce-resizehandle {&amp;#xA;    position: absolute;&amp;#xA;    border: 1px solid black;&amp;#xA;    box-sizing: content-box;&amp;#xA;    background: #FFF;&amp;#xA;    width: 7px;&amp;#xA;    height: 7px;&amp;#xA;    z-index: 10000;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body .mce-resizehandle:hover {&amp;#xA;    background: #000;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body img[data-mce-selected],&amp;#xA;  .mce-content-body hr[data-mce-selected] {&amp;#xA;    outline: 1px solid black;&amp;#xA;    resize: none;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body .mce-clonedresizable {&amp;#xA;    position: absolute;&amp;#xA;    outline: 1px dashed black;&amp;#xA;    opacity: .5;&amp;#xA;    filter: alpha(opacity=50);&amp;#xA;    z-index: 10000;&amp;#xA;  }&amp;#xA;&amp;#xA;  .mce-content-body .mce-resize-helper {&amp;#xA;    background: #555;&amp;#xA;    background: rgba(0,0,0,0.75);&amp;#xA;    border-radius: 3px;&amp;#xA;    border: 1px;&amp;#xA;    color: white;&amp;#xA;    display: none;&amp;#xA;    font-family: sans-serif;&amp;#xA;    font-size: 12px;&amp;#xA;    white-space: nowrap;&amp;#xA;    line-height: 14px;&amp;#xA;    margin: 5px 10px;&amp;#xA;    padding: 5px;&amp;#xA;    position: absolute;&amp;#xA;    z-index: 10001;&amp;#xA;  }&amp;#xA;&amp;#xA;  summary::marker {&amp;#xA;    cursor: pointer;&amp;#xA;  }' /&gt;" Guid="d7e604f1-aed4-49e5-8177-f8dde9327e2b" ImageBase64="" InformativeScreenshot="64988dd01154a3aa27e53e182386051f.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/erStmdERNUqoUbu2Yz0fGw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                               <uix:TargetAnchorable.Anchors>
                                 <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                  <uix:Target DesignTimeRectangle="616, 329, 28, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Opis' tag='SPAN' /&gt;" Guid="838534b2-5bd3-4b94-9afc-ab6a600d5186" ImageBase64="" SearchSteps="Selector" />
+                                  <uix:Target DesignTimeRectangle="1869, 577, 56, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Opis' tag='SPAN' /&gt;" Guid="838534b2-5bd3-4b94-9afc-ab6a600d5186" ImageBase64="" SearchSteps="Selector" />
                                 </scg:List>
                               </uix:TargetAnchorable.Anchors>
                             </uix:TargetAnchorable>
@@ -493,14 +493,14 @@
                             </uix:VerifyExecutionTypeIntoOptions>
                           </uix:NTypeInto.VerifyOptions>
                         </uix:NTypeInto>
-                        <Sequence DisplayName="Multimedia/Photo" sap:VirtualizedContainerService.HintSize="988,1817" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <Sequence DisplayName="Multimedia/Photo" sap:VirtualizedContainerService.HintSize="988,1771" sap2010:WorkflowViewState.IdRef="Sequence_17">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DisplayName="Click 'Prześlij nowe'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,233" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DisplayName="Click 'Prześlij nowe'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,228" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="FhGMslfvbUi7vKmubGdLOw" DesignTimeRectangle="819, 621, 77, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Prześlij nowe' parentid='AppFrameScrollable' tag='SPAN' /&gt;" Guid="110a8238-76fe-4848-8f8c-e00cc3b5ff72" InformativeScreenshot="2a7aafb015d926c858bd5971cd567093.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/QQwSIxrK4UWPlbsP7dedOg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -527,12 +527,12 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NClick>
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'photo path'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,296" sap2010:WorkflowViewState.IdRef="NTypeInto_12" InteractionMode="HardwareEvents" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'photo path'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,291" sap2010:WorkflowViewState.IdRef="NTypeInto_12" InteractionMode="HardwareEvents" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                             <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" CVScreenId="a0d23d0b-ded0-4fa4-90d7-28976c9d9d75" ContentHash="3tOak1cKyU-xKJqxzfs2xw" CvElementArea="194, 464, 542, 25" CvType="InputBox" DesignTimeRectangle="201, 470, 514, 15" ElementType="InputBox" FuzzySelectorArgument="&lt;wnd ctrlid='1148' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;&lt;wnd ctrlid='1148' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;&lt;wnd ctrlid='1148' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;" Guid="b5c266f1-394d-4a2f-9a15-bdfc425bf51b" InformativeScreenshot="e3168f92a8b5cf4e981968bd5d6fd3d0.png" IsResponsive="True" Reference="oTL5qaUQ5UOqYtxaCAMveA/Cd1D71pDmk-19BqbHWVfrw" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" CVScreenId="b93a75c4-b225-4937-af38-b7a499e28db2" ContentHash="eu9MJtUeE0iXArAyZ9Z10A" CvElementArea="395, 806, 671, 47" CvType="InputBox" DesignTimeRectangle="403, 814, 625, 32" ElementType="InputBox" FuzzySelectorArgument="&lt;wnd ctrlid='1148' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;&lt;wnd ctrlid='1148' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;&lt;wnd ctrlid='1148' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' /&gt;" Guid="6e3b6ccd-f5e5-4719-8fec-a15da72f0f8f" InformativeScreenshot="7e7f2fdaa14f3da7d980479c52924da8.png" IsResponsive="True" Reference="lafAS4q5aU-WWBd-m7gOCw/GqBbchxBbEmejGF9-CQUNg" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Otwieranie' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                 <uix:TargetAnchorable.Anchors>
                                   <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                    <uix:Target CVScreenId="a0d23d0b-ded0-4fa4-90d7-28976c9d9d75" CvTextArea="137, 470, 55, 12" CvTextArgument="File name:" CvType="Text" DesignTimeRectangle="138, 469, 54, 15" ElementType="Text" FuzzySelectorArgument="&lt;wnd ctrlid='1090' title='File &amp;amp;name:' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' matching:title='fuzzy' fuzzylevel:title='0.0' check:text='File &amp;amp;name:' /&gt;" Guid="fffedbb5-b34d-4811-8aeb-a6a771f100ec" SearchSteps="FuzzySelector, CV" />
+                                    <uix:Target CVScreenId="b93a75c4-b225-4937-af38-b7a499e28db2" CvTextArea="253, 816, 138, 32" CvTextArgument="Nazwa pliku:" CvType="Text" DesignTimeRectangle="255, 814, 134, 32" ElementType="Text" FuzzySelectorArgument="&lt;wnd ctrlid='1090' title='&amp;amp;Nazwa pliku:' matching:ctrlid='fuzzy' fuzzylevel:ctrlid='0.0' matching:title='fuzzy' fuzzylevel:title='0.0' check:text='&amp;amp;Nazwa pliku:' /&gt;" Guid="3518f8fb-8ea2-474b-83d4-f23c048ba0ce" SearchSteps="FuzzySelector, CV" />
                                   </scg:List>
                                 </uix:TargetAnchorable.Anchors>
                               </uix:TargetAnchorable>
@@ -553,9 +553,9 @@
                               </uix:VerifyExecutionTypeIntoOptions>
                             </uix:NTypeInto.VerifyOptions>
                           </uix:NTypeInto>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click '&amp;Otwórz'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,233" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click '&amp;Otwórz'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,228" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                             <uix:NClick.Target>
-                              <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" ContentHash="y72Y1agBQUeylUh5MAMRKA" DesignTimeRectangle="747, 494, 88, 26" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Open' /&gt;" Guid="4d918ced-3732-479e-b00b-bd94b78b7903" InformativeScreenshot="731d0d9b469ef7466ca7646d58dd7c39.png" Reference="oTL5qaUQ5UOqYtxaCAMveA/RfXKIU5TQE-IWH5CqB6U7A" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                              <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" CVScreenId="b93a75c4-b225-4937-af38-b7a499e28db2" ContentHash="0yUXG58Cd0yoOq-AD8sUcA" CvElementArea="1087, 858, 179, 55" CvTextArea="1135, 874, 82, 26" CvTextArgument="Otwórz" CvType="Button" DesignTimeRectangle="1089, 861, 176, 52" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlid='1' title='*Otwórz' /&gt;" Guid="4303de0d-9fff-4bb3-be97-2afcdeb721ef" InformativeScreenshot="e7ea520e25ff0bfa9a5d271a96de0534.png" Reference="lafAS4q5aU-WWBd-m7gOCw/VGhSky-JgUyar6CrqJDY2g" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Otwieranie' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                             </uix:NClick.Target>
                             <uix:NClick.VerifyOptions>
                               <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -568,15 +568,15 @@
                               </uix:VerifyExecutionOptions>
                             </uix:NClick.VerifyOptions>
                           </uix:NClick>
-                          <uix:NCheckState DisplayName="Check App State 'Photo'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,955" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                          <uix:NCheckState DisplayName="Check App State 'Photo'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,932" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                             <uix:NCheckState.IfExists>
-                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,706" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,689" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'CUsersduc.dangDeskt…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,233" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'CUsersduc.dangDeskt…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable ContentHash="BWxN9CTevUSw1-udglKznw" DesignTimeRectangle="413, 115, 68, 23" ElementType="Button" FullSelectorArgument="&lt;wnd aaname='Otwieranie' cls='DirectUIHWND' /&gt;&lt;wnd cls='Button' title='OK' /&gt;" Guid="f9f8b78f-c3ca-4a23-8ab0-3fdd60579270" InformativeScreenshot="76da7bd6dced836fc4f5da9acd83b39d.png" Reference="9CTFqybf1EemBBOL8NMm8Q/7-i9KsQULESK_TzTiUwtqA" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Otwieranie' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                   </uix:NClick.Target>
@@ -591,14 +591,14 @@
                                     </uix:VerifyExecutionOptions>
                                   </uix:NClick.VerifyOptions>
                                 </uix:NClick>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,181" sap2010:WorkflowViewState.IdRef="LogMessage_6">
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,178" sap2010:WorkflowViewState.IdRef="LogMessage_6">
                                   <ui:LogMessage.Message>
                                     <InArgument x:TypeArguments="x:Object">
-                                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">"Invalid file name or path"+in_photos_path+CurrentRow["Multimedia"].ToString()</CSharpValue>
+                                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">"Brak lub zła nazwa pliku: "+in_photos_path+CurrentRow["Multimedia"].ToString()</CSharpValue>
                                     </InArgument>
                                   </ui:LogMessage.Message>
                                 </ui:LogMessage>
-                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anuluj'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Anuluj'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,221" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                                   <uix:NClick.Target>
                                     <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" ContentHash="tTm9uDn_eUqx1GTeLjMT-Q" DesignTimeRectangle="838, 480, 88, 26" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlid='2' title='Anuluj' /&gt;" Guid="3a3a716f-f000-4304-b40c-b717c387e66a" InformativeScreenshot="56a3310d5da9a3917854f5f83fd90eb3.png" Reference="9CTFqybf1EemBBOL8NMm8Q/A7A2Yo_t1EC05Sb3qppqNQ" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Otwieranie' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                   </uix:NClick.Target>
@@ -616,7 +616,7 @@
                               </Sequence>
                             </uix:NCheckState.IfExists>
                             <uix:NCheckState.IfNotExists>
-                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,96" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,92.5" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -635,7 +635,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NCheckState>
                         </Sequence>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1" DisplayName="Type Into 'Kategoria'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,296" sap2010:WorkflowViewState.IdRef="NTypeInto_22" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1" DisplayName="Type Into 'Kategoria'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,291" sap2010:WorkflowViewState.IdRef="NTypeInto_22" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NTypeInto.Target>
                             <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="iPkjScA460iyXf5T6h6cdA" DesignTimeRectangle="616, 343, 601, 32" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='ProductCategoryPickerId' tag='INPUT' /&gt;" Guid="47658952-f78a-4c8b-9ffd-54903a4aaeec" InformativeScreenshot="59a59c6a7b9e5aa346963bc4c7163d81.png" IsResponsive="True" Reference="t9abKaAJZkSt2XHEiwb6IQ/ef3E00AJCE6p1nnrhpy93A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                               <uix:TargetAnchorable.Anchors>
@@ -661,7 +661,7 @@
                             </uix:VerifyExecutionTypeIntoOptions>
                           </uix:NTypeInto.VerifyOptions>
                         </uix:NTypeInto>
-                        <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,259" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
+                        <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,250" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
                           <uix:NKeyboardShortcuts.VerifyOptions>
                             <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
                               <uix:VerifyExecutionOptions.Retry>
@@ -898,20 +898,20 @@
                             </uix:VerifyExecutionOptions>
                           </uix:NClick.VerifyOptions>
                         </uix:NClick>
-                        <ui:ForEach x:TypeArguments="x:String" DisplayName="For Each Add Sizes" sap:VirtualizedContainerService.HintSize="988,745" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+                        <ui:ForEach x:TypeArguments="x:String" DisplayName="For Each Add Sizes" sap:VirtualizedContainerService.HintSize="988,723.5" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="x:String">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,610" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,592" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="2" DisplayName="Type Into 'INPUT(1)'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,296" sap2010:WorkflowViewState.IdRef="NTypeInto_18" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="2" DisplayName="Type Into 'INPUT(1)'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,291" sap2010:WorkflowViewState.IdRef="NTypeInto_18" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                                   <uix:NTypeInto.Target>
                                     <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="SjeShojocUORsAxh94J2pg" DesignTimeRectangle="674, 620, 521, 24" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' type='search' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='search' class='_searchInput_11otp_23' placeholder='Dodaj rozmiar' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="32e61645-2e4c-44a5-93ea-c5206d19aa24" InformativeScreenshot="531915914916cd9c299063376dd54e89.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/Wx8261et_0OZO1r__jbdGQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                                   </uix:NTypeInto.Target>
@@ -931,7 +931,7 @@
                                     </uix:VerifyExecutionTypeIntoOptions>
                                   </uix:NTypeInto.VerifyOptions>
                                 </uix:NTypeInto>
-                                <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="2" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
+                                <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="2" DisplayName="Keyboard Shortcuts" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,241" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V5">
                                   <uix:NKeyboardShortcuts.VerifyOptions>
                                     <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
                                       <uix:VerifyExecutionOptions.Retry>
@@ -957,7 +957,7 @@
                             </InArgument>
                           </ui:ForEach.Values>
                         </ui:ForEach>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'Warianty'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,233" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'Warianty'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,228" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" CVScreenId="1bd4971a-5d01-45a0-968d-888103774976" ContentHash="1IuBVQ2-H0CdxZFnx9NJ2g" CvTextArea="935, 574, 58, 16" CvTextArgument="Warianty" CvType="Text" DesignTimeRectangle="936, 571, 601, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='AppFrameScrollable' tag='H2' /&gt;" Guid="7c2f1033-7258-452e-a876-b2eb45e7c673" InformativeScreenshot="a9f19691e73e1e9e538eb21ffee9bfa9.png" Reference="oTL5qaUQ5UOqYtxaCAMveA/ZyD6tgZUTUuF_aicj8xOCQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                           </uix:NClick.Target>
@@ -972,15 +972,9 @@
                             </uix:VerifyExecutionOptions>
                           </uix:NClick.VerifyOptions>
                         </uix:NClick>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Gotowe'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,233" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Gotowe'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,228" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NClick.Target>
-                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/10278167675207" ContentHash="P8uNKhZ7_kKDgB3eMT0LCQ" DesignTimeRectangle="1144, 729, 44, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Gotowe' parentid='expanded-option-gid://shopify/ProductOption/13238202827079' tag='SPAN' type='' class='Polaris-Text--root Polaris-Text--bodySm Polaris-Text--semibold' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Gotowe' /&gt;" Guid="1ee4f5c3-e170-4b87-9a25-27d70331f7e9" InformativeScreenshot="e6fb0ac3ae3cfa9a0fdd54d5818e9c1f.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/DH--Wrq4HUWu-IDPK44ALw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · T shirt · Shopify' /&gt;" SearchSteps="FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
-                              <uix:TargetAnchorable.Anchors>
-                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                  <uix:Target DesignTimeRectangle="1132, 723, 68, 28" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Gotowe' parentid='expanded-option-gid://shopify/ProductOption/13238202827079' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Gotowe' parentid='expanded-option-gid://shopify/ProductOption/13238202827079' tag='BUTTON' type='button' class='Polaris-Button Polaris-Button--pressable Polaris-Button--variantPrimary Polaris-Button--sizeMedium Polaris-Button--textAlignCenter' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Gotowe' /&gt;" Guid="a8396d4a-f452-46a6-bf98-72b17ec6fb4c" SearchSteps="Selector, FuzzySelector" />
-                                </scg:List>
-                              </uix:TargetAnchorable.Anchors>
-                            </uix:TargetAnchorable>
+                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" CVScreenId="7b5aa0ce-9975-465a-8ed5-c3b02aeda457" ContentHash="C7cWi97fuUS3SsewD8eoKg" CvElementArea="1849, 1317, 143, 63" CvTextArea="1873, 1335, 96, 26" CvTextArgument="Gotowe" CvType="Button" DesignTimeRectangle="1850, 1317, 142, 62" ElementType="Button" Guid="de2b3a3f-e7cf-4968-8144-6f3fed564529" InformativeScreenshot="870e7bc884fc34f76737cd142d04bc7b.png" Reference="lafAS4q5aU-WWBd-m7gOCw/QYkzaG4iJUq59bDrNY8LoA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                           </uix:NClick.Target>
                           <uix:NClick.VerifyOptions>
                             <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -999,9 +993,9 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </uix:NClick>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1.5" DisplayName="Click 'Search'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,233" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1.5" DisplayName="Click 'Search'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,228" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NClick.Target>
-                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/10278167675207" ContentHash="tcTnRUwLcEyOcFy4P3Zvlw" DesignTimeRectangle="1175, 571, 16, 16" ElementType="Icon" FullSelectorArgument="&lt;webctrl parentid='AppFrameScrollable' tag='S-INTERNAL-ICON' type='search' /&gt;&lt;webctrl shadowhostid='' tag='svg' /&gt;" Guid="d3c5eb83-cc46-4eff-9b61-74a376b12a49" InformativeScreenshot="a5950865287377a3150a8504b4e6bf9f.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/tD_QAWB86kWujiQxx7nZcg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · T shirt · Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                            <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/10278167675207" ContentHash="7DQr2obueki1_jGAuS-gGQ" DesignTimeRectangle="1940, 1530, 32, 32" ElementType="Icon" FullSelectorArgument="&lt;webctrl parentid='AppFrameScrollable' tag='S-INTERNAL-ICON' type='search' /&gt;&lt;webctrl shadowhostid='' tag='svg' /&gt;" Guid="d3c5eb83-cc46-4eff-9b61-74a376b12a49" InformativeScreenshot="d5dca65cb97fbafdeeb5f376532e7c73.png" Reference="lafAS4q5aU-WWBd-m7gOCw/gcgY2NTlD0-XCvw5Y8FyVQ" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · T shirt · Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                           </uix:NClick.Target>
                           <uix:NClick.VerifyOptions>
                             <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -1014,19 +1008,19 @@
                             </uix:VerifyExecutionOptions>
                           </uix:NClick.VerifyOptions>
                         </uix:NClick>
-                        <ui:ForEach x:TypeArguments="x:String" DisplayName="For Each Add Quantities" sap:VirtualizedContainerService.HintSize="988,782" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
+                        <ui:ForEach x:TypeArguments="x:String" DisplayName="For Each Add Quantities" sap:VirtualizedContainerService.HintSize="988,764.5" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="x:String">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,647" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,633" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1.5" DisplayName="Type Into 'Rozmiar'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,296" sap2010:WorkflowViewState.IdRef="NTypeInto_19" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1.5" DisplayName="Type Into 'Rozmiar'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,291" sap2010:WorkflowViewState.IdRef="NTypeInto_19" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                                   <uix:NTypeInto.Target>
                                     <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/products/new" CVScreenId="433074ad-8784-456d-b523-d845970f1f58" ContentHash="rRjdnnEcJESxcDdj1DTcIA" CvElementArea="615, 355, 601, 30" CvType="InputBox" DesignTimeRectangle="648, 356, 569, 28" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id=':rji:' tag='INPUT' type='text' class='Polaris-TextField__Input Polaris-TextField__Input--hasClearButton' placeholder='Wyszukiwanie' aaname='Wyszukiwanie' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="1ab5ef74-a727-4a9b-bc90-4d22206f5811" InformativeScreenshot="5af86577f9c82ed8ad72c2394a857da3.png" Reference="oTL5qaUQ5UOqYtxaCAMveA/ts71fsxkDki8b7_vtXoiCA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                       <uix:TargetAnchorable.Anchors>
@@ -1052,7 +1046,7 @@
                                     </uix:VerifyExecutionTypeIntoOptions>
                                   </uix:NTypeInto.VerifyOptions>
                                 </uix:NTypeInto>
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1.5" DisplayName="Type Into 'Dostępne'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,287" sap2010:WorkflowViewState.IdRef="NTypeInto_20" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1.5" DisplayName="Type Into 'Dostępne'" EmptyFieldMode="MultiLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,282" sap2010:WorkflowViewState.IdRef="NTypeInto_20" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                                   <uix:NTypeInto.Target>
                                     <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="Vc6qWHj84UWqBc7bqDR9ag" DesignTimeRectangle="1125, 735, 96, 32" ElementType="InputBox" FullSelectorArgument="&lt;webctrl aaname='Wybierz wszystkie warianty Wariant Cena Dostępne' tag='TABLE' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;span&amp;gt;span&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' tableCol='4' tableRow='2' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wybierz wszystkie warianty Wariant Cena Dostępne' tag='TABLE' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;&lt;webctrl type='' class='Polaris-TextField Polaris-TextField--hasValue' aaname='' tag='DIV' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="4c34c8a3-a4f1-4af5-b142-3ded147aa67a" ImageBase64="" InformativeScreenshot="3129b990a77b581132184733ef0b1c74.png" IsResponsive="True" Reference="t9abKaAJZkSt2XHEiwb6IQ/TQSIWU2sgEOfgq4VCOly4w" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
                                       <uix:TargetAnchorable.Anchors>
@@ -1098,7 +1092,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ForEach>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="4" DisplayName="Click 'Zapisz'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,233" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="4" DisplayName="Click 'Zapisz'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,228" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/rpa-ecommerce/products/new" ContentHash="Px-DRiArwEyxjrhGAmtucw" DesignTimeRectangle="1230, 96, 54, 28" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" Guid="39f9c66c-ad3a-498d-9efe-39dbdfa0a42f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAgCAYAAABD9mvVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR0SURBVFhH3ZnHSyRBFMb37/CwsHvY28KMrsqYMWNYRUQQDOBBUUEQRbyIqOhZMRzEjAfBg+LBAKLiwYg5BxTEhGJAVMxv+R5bQ3fVOLOugRk/eDB0v+76flWvuqp7vhgMBvps4efnR9HR0fTdxUBOTk4cX+SkzxJubm4UHh5OP0xu1kGTkpKotbWVpqenaWdnh3Z3d+0y4A0e4RWetQwuLi4UFhbGI2sRFBft7+/TxcUF3d3d0dPTE9mr4A0e4RWe4V3LgpH9HRWlgvb19dHJyYldwz0neIZ3MGiZfH199aDoDSQ6usAgj6wZNDExkWveEUdSFhjAAiYFFD1wfn4uX+OwAot2VM2gk5OTdHt7K+c7rMACJgV0Y2PjU5StEFjAZBH0s8ki6Pr6upz3IRLr4HsITAro2tqanGfW9fU15efnU0REhBLt7e1y+ovU0dFB/v7+tLq6Kp96tcCkgFprCBO7ubmZSkpKqKysjM1VVlaSp6cnDQ0Nyekv0tnZGU1MTNDNzY186tUCkwK6srIi5z0rLMhxcXEMfn9/z8dgtLu7m4/V1NTwHhQSnTQ8PEwDAwN8HnkCDO1WVFTwFg7a3t6m8vJy7lBc8/j4qOtobdjyjPMK6PLyspxnUQ8PD1RaWkqxsbF0eHjIx2A6NzeXQkNDGTIjI4NCQkJoc3OTrq6uKDU1leLj4yk9PZ3y8vK4EnAP3AsVgSlwfHxMc3Nz5OPjQ8XFxdTS0sJbN0wNGRT3QrnbAgWTArq4uCjnWVR/fz+bGR0d1R1HCYoNx8HBAb81AEKAZmZmmkexra2NAgMDaWtrSwcKqODgYD4OYZTltX1hYYECAgKoqanJ5nIIJgUUN7AlvB3ExMRQdXW10ghelQCDUXV3dydnZ2cdaF1dnTkXPQ2zY2NjOlBUSEpKCl8bGRlJVVVV3IFC6Ehs67RTxprApIDOz8/LeTrhxoWFhdyQvFXEvAIgOkAYhnktaFFRkTkfgAAFsBYUQgceHR1RV1cXH8/JyeFRRfsAtNT+cwKTAor5YU29vb38iQLGYEoEQPB0AyjKGUZ7enrI1dVVB4o5hVHHCKWlpfE8g2EtKOYl5vHp6SmXeXZ2NmVlZfFvlKq3t7eufbmsZYFJAZ2dnZXzzBJmRa42GhsbubfxcEHJIWAOc00LmpyczE9qXBMUFETj4+N8b+TgkweqQJSuuDe+++CBAyh0hty2raUNTArozMyMnPdiAQohHwNoQUEBj/bl5aUyv2XhGrHcvEZgUkCnpqZsGvgfaUE/UmABkwI6ODjIW723FtZKvC7Zeti9tcACJgW0oaGB9vb25HyHFVjApIDisT0yMvIu5fvRAgNYLH5KQdTW1v7TxsHeBQawaNl0oAjx0RqbaUcTPIuP2VomfNtVQBHYmHd2dtLS0hIv8PYMDW/wCK/wDO9aFqzrnl5elkERCQkJvNfEbgWbgvr6ersMeINHeIVnLYPRaCQPDw/6avj5PKijB0bSZDLRt19G638yOXJgn236O5Lib8M/Z+Ce9tho8IUAAAAASUVORK5CYII=" InformativeScreenshot="54dd53ab37435ffdaa667595f87a83da.png" Reference="t9abKaAJZkSt2XHEiwb6IQ/-KWTOfRb00uqBRW498KzvA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Produkty · Dodaj produkt · Shopify' /&gt;" SearchSteps="Selector, Image" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                           </uix:NClick.Target>
@@ -1113,7 +1107,7 @@
                             </uix:VerifyExecutionOptions>
                           </uix:NClick.VerifyOptions>
                         </uix:NClick>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="4" DisplayName="Click 'Pulpit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,233" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="4" DisplayName="Click 'Pulpit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="988,228" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable BrowserURL="admin.shopify.com/store/daneashop/orders/6877319233863" CVScreenId="356c0384-cec6-4109-a363-c8bdcfcae2f8" ContentHash="Z61OSXiTzka9h7icETY88A" CvTextArea="59, 163, 38, 16" CvTextArgument="Pulpit" CvType="Text" DesignTimeRectangle="60, 162, 36, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Pulpit' parentid='AppFrameNav' tag='SPAN' /&gt;" Guid="2cf2ad49-e099-44ce-919f-40eff647d205" InformativeScreenshot="d0efaea703dd42738ecc827f3b500cf7.png" Reference="oTL5qaUQ5UOqYtxaCAMveA/NFE8KAYRtUa2K9xFxsnzSg" ScopeSelectorArgument="&lt;html app='msedge.exe' title='rpa-ecommerce · Zamówienia · #1006 · Shopify' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
                           </uix:NClick.Target>
@@ -1128,7 +1122,7 @@
                             </uix:VerifyExecutionOptions>
                           </uix:NClick.VerifyOptions>
                         </uix:NClick>
-                        <Assign sap:VirtualizedContainerService.HintSize="988,179" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign sap:VirtualizedContainerService.HintSize="988,176" sap2010:WorkflowViewState.IdRef="Assign_6">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">
                               <CSharpReference x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">CurrentRow["Czy produkt zostal dodany?"]</CSharpReference>
@@ -1140,7 +1134,7 @@
                             </InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="988,152" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Raport">
+                        <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="988,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Raport">
                           <ui:WriteRange.DataTable>
                             <InArgument x:TypeArguments="sd:DataTable">
                               <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">final_products_dt</CSharpValue>
@@ -1152,7 +1146,7 @@
                             </InArgument>
                           </ui:WriteRange.WorkbookPath>
                         </ui:WriteRange>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="988,172" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="988,169" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info">
                           <ui:LogMessage.Message>
                             <InArgument x:TypeArguments="x:Object">
                               <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">"Product: "+CurrentRow["Tytuł"].ToString() +" has been added"</CSharpValue>
@@ -1173,7 +1167,7 @@
           </ActivityAction>
         </uix:NApplicationCard.Body>
         <uix:NApplicationCard.TargetApp>
-          <uix:TargetApp Area="1025, -1107, 1936, 1048" BrowserType="Edge" ContentHash="kfnAe1Swr0SC1nROU_hfAA" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAK0SURBVFhHrZfLahVBEIbzCHkDfYQ8gMSTcdEbFwEX7oK4EgUZBC9xpWQrIkKjSJBgNOLKrFwI0gHFgFlEFKIgXjYSJAslCiKCI/+hK9Spy0zPIQU/OdNnTv3fdFf1dCZCfXSij2IKV2IKP2IKTUxhLaZwIqYwJe8rlRrwFFOYjCm8zuaAqDMECTCT8nddUgOeYgo3svlUFkwBhL+r+bs1+bsuqQFLMYVBNqrz9Rcyy0++lJcC98xefnhkYX6lOiDzWFIDlrIJGZLRwXwNcwDh73A55leq5tStw7slEGpACkb0ZPka003Fh8+8DvYA5q5PDyEuLFc1dOlBdUjmLgVAweEJAYLCow5wRQBcgJG5OwFyscFcmbTJAoBkfheAratKXiIPwFoGyxztppJKrW6ebx5tnFbjbQCoBelnAZhrvPj8WPPq83Kz+/tbwwPX8l4P4NzSzGPpZwGohHhSaUzxaeelut8DqO/OqI1KmtOGM/LknjnixYfbxQBWJ3QCwIDHn7+/mq/f3wyFuLc+t68A6PmRZGSEwExgRug7/rkEAOoNwGPn50dlZqkNQLaiBMAWO5IMU84DM2JNeymAbMVOAFS5DEA9e3dNGZcAyE6QACoZWtALD6IN4OziYMsEyCcelQzCrieXAoExqxDbAGQncADVglxYdxShDMDJe9sATt6c/ucBzMpE8ukAIaMvAOQBqBbE3o+qJ5P320+l/1gAF+9Xxy0A9Rbkm5AXVkt2AeDMaAGoFrQKjwdmRP6mBIC3IgegI/aenry96r6IMDuyRkoBeCtyAJWIg6AeSNa69wHgrUjmdPLdF3UB8FYkABw+1RKMqy4ASC0BWwpsSDjzoy1RmL0PpyUA9FJSAJ4yGP4vQLsCzDw7egCY9jN3Bts4F5r7wDjK7w8Cw1F+2MoA8Ayl/gOtdYjegtXX5wAAAABJRU5ErkJggg==" InformativeScreenshot="f71ffffbbc75b3d86f49b692ee2e0679.jpg" Reference="oTL5qaUQ5UOqYtxaCAMveA/Hg6HafAUT0aPfGMGSBZJbA" Selector="&lt;html app='msedge.exe' title='Zaloguj się w - Shopify' /&gt;" Version="V2">
+          <uix:TargetApp Area="1025, -1107, 1936, 1048" BrowserType="Edge" ContentHash="FtYkIq9ph0CQGoea5FbK6A" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAK0SURBVFhHrZfLahVBEIbzCHkDfYQ8gMSTcdEbFwEX7oK4EgUZBC9xpWQrIkKjSJBgNOLKrFwI0gHFgFlEFKIgXjYSJAslCiKCI/+hK9Spy0zPIQU/OdNnTv3fdFf1dCZCfXSij2IKV2IKP2IKTUxhLaZwIqYwJe8rlRrwFFOYjCm8zuaAqDMECTCT8nddUgOeYgo3svlUFkwBhL+r+bs1+bsuqQFLMYVBNqrz9Rcyy0++lJcC98xefnhkYX6lOiDzWFIDlrIJGZLRwXwNcwDh73A55leq5tStw7slEGpACkb0ZPka003Fh8+8DvYA5q5PDyEuLFc1dOlBdUjmLgVAweEJAYLCow5wRQBcgJG5OwFyscFcmbTJAoBkfheAratKXiIPwFoGyxztppJKrW6ebx5tnFbjbQCoBelnAZhrvPj8WPPq83Kz+/tbwwPX8l4P4NzSzGPpZwGohHhSaUzxaeelut8DqO/OqI1KmtOGM/LknjnixYfbxQBWJ3QCwIDHn7+/mq/f3wyFuLc+t68A6PmRZGSEwExgRug7/rkEAOoNwGPn50dlZqkNQLaiBMAWO5IMU84DM2JNeymAbMVOAFS5DEA9e3dNGZcAyE6QACoZWtALD6IN4OziYMsEyCcelQzCrieXAoExqxDbAGQncADVglxYdxShDMDJe9sATt6c/ucBzMpE8ukAIaMvAOQBqBbE3o+qJ5P320+l/1gAF+9Xxy0A9Rbkm5AXVkt2AeDMaAGoFrQKjwdmRP6mBIC3IgegI/aenry96r6IMDuyRkoBeCtyAJWIg6AeSNa69wHgrUjmdPLdF3UB8FYkABw+1RKMqy4ASC0BWwpsSDjzoy1RmL0PpyUA9FJSAJ4yGP4vQLsCzDw7egCY9jN3Bts4F5r7wDjK7w8Cw1F+2MoA8Ayl/gOtdYjegtXX5wAAAABJRU5ErkJggg==" InformativeScreenshot="f71ffffbbc75b3d86f49b692ee2e0679.jpg" Reference="lafAS4q5aU-WWBd-m7gOCw/gfBH7PjKK0WIdbk3Ft0MQQ" Selector="&lt;html app='msedge.exe' title='Zaloguj się w - Shopify' /&gt;" Version="V2">
             <uix:TargetApp.Url>
               <InArgument x:TypeArguments="x:String">
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">
