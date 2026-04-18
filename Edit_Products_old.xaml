@@ -143,7 +143,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Add_New_Products" sap:VirtualizedContainerService.HintSize="1594,13213.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Add_New_Products" sap:VirtualizedContainerService.HintSize="1835,13133.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="final_products_dt" />
       <Variable x:TypeArguments="s:String[]" Name="quantities" />
@@ -155,26 +155,26 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="1594,13190.5" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence sap:VirtualizedContainerService.HintSize="1594,13110.5" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge Zaloguj się w - Shopify" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,13107.5" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge Zaloguj się w - Shopify" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,13027.5" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,12826" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,12786" sap2010:WorkflowViewState.IdRef="Sequence_11">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,2265.5" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Timeout="10" Version="V5">
+              <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,2225.5" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Timeout="10" Version="V5">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,233" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <sap:WorkflowViewStateService.ViewState>
@@ -384,7 +384,7 @@
                     </InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:AddDataColumn x:TypeArguments="x:Boolean" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Czy produkt zostal dodany?" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="1024,222.5" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2">
+                <ui:AddDataColumn x:TypeArguments="x:Boolean" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Czy produkt zostal z edytowany" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="1024,222.5" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2">
                   <ui:AddDataColumn.DataTable>
                     <InArgument x:TypeArguments="sd:DataTable">
                       <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">final_products_dt</CSharpValue>
@@ -407,7 +407,7 @@
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="988,178" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info">
                           <ui:LogMessage.Message>
                             <InArgument x:TypeArguments="x:Object">
-                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">"Adding product: "+CurrentRow["Tytuł"].ToString()</CSharpValue>
+                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">"Editing product: "+CurrentRow["Tytuł"].ToString()</CSharpValue>
                             </InArgument>
                           </ui:LogMessage.Message>
                         </ui:LogMessage>
