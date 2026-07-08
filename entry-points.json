@@ -10,8 +10,8 @@
         "properties": {
           "in_config_Path": {
             "type": "string",
-            "x-default-expression": "@\"C:\\Users\\michaldang\\Desktop\\Darea\\Config_Mail_Management.xlsx\"",
-            "default": "C:\\Users\\michaldang\\Desktop\\Darea\\Config_Mail_Management.xlsx"
+            "x-default-expression": "@\"C:\\Users\\mdrag\\Desktop\\Darea\\Config_Mail_Management.xlsx\"",
+            "default": "C:\\Users\\mdrag\\Desktop\\Darea\\Config_Mail_Management.xlsx"
           }
         },
         "required": []

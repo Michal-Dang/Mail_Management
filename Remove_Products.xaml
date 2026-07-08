@@ -76,66 +76,66 @@
     <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
       <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
       <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>System.Net.Mail</AssemblyReference>
       <AssemblyReference>System.ObjectModel</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
-      <AssemblyReference>System.Drawing.Common</AssemblyReference>
-      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.WorkflowEvents.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Platform</AssemblyReference>
-      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
-      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
-      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-      <AssemblyReference>System.Security.Permissions</AssemblyReference>
-      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>System.ComponentModel</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
-      <AssemblyReference>System.Private.Xml</AssemblyReference>
-      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
-      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Console</AssemblyReference>
-      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
-      <AssemblyReference>System.Memory</AssemblyReference>
-      <AssemblyReference>System.Private.Uri</AssemblyReference>
-      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
-      <AssemblyReference>NPOI.Core</AssemblyReference>
-      <AssemblyReference>System.Collections</AssemblyReference>
-      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
-      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
-      <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
-      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -143,7 +143,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Add_New_Products" sap:VirtualizedContainerService.HintSize="1594,15940" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Add_New_Products" sap:VirtualizedContainerService.HintSize="1640,16473" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="final_products_dt" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="i" />
@@ -155,26 +155,26 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="1594,11931" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence sap:VirtualizedContainerService.HintSize="1594,12464" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge Zaloguj się w - Shopify" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,11839" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Edge Zaloguj się w - Shopify" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="1560,12372" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V2" WindowResize="Maximize">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,11598" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1526,12131" sap2010:WorkflowViewState.IdRef="Sequence_11">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,1986" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Timeout="10" Version="V5">
+              <uix:NCheckState DisplayName="Check App State 'Produkty'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="1492,2519" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Timeout="10" Version="V5">
                 <uix:NCheckState.IfExists>
                   <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,232" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <sap:WorkflowViewStateService.ViewState>
@@ -195,13 +195,51 @@
                   </Sequence>
                 </uix:NCheckState.IfExists>
                 <uix:NCheckState.IfNotExists>
-                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="988,1735" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="988,2268" sap2010:WorkflowViewState.IdRef="Sequence_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <uix:NCheckState DisplayName="Check App State 'Dodaj konto'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="954,533" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Timeout="1" Version="V5">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,282" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Dodaj konto'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,220" sap2010:WorkflowViewState.IdRef="NClick_19" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="accounts.shopify.com/select" CVScreenId="926953f8-69a2-4e77-b146-6cd91a606978" ContentHash="xAr44kgXdUiTC0VoqRklnA" CvTextArea="2303, 987, 166, 34" CvTextArgument="Dodaj konto" CvType="Text" DesignTimeRectangle="2305, 983, 640, 40" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='         Dodaj konto       ' class='user-card__content' parentid='body-content' tag='DIV' /&gt;" Guid="5e3385c9-72ac-417b-a7b8-a38b41154ea7" InformativeScreenshot="60beb01a2e9e57333cf43c84b29ca032.png" Reference="lafAS4q5aU-WWBd-m7gOCw/NsxuQDYTEUqPWgz6IwIycw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Zaloguj się — Shopify' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="accounts.shopify.com/select" CVScreenId="926953f8-69a2-4e77-b146-6cd91a606978" ContentHash="xAr44kgXdUiTC0VoqRklnA" CvTextArea="2303, 987, 166, 34" CvTextArgument="Dodaj konto" CvType="Text" DesignTimeRectangle="2305, 983, 640, 40" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='         Dodaj konto       ' class='user-card__content' parentid='body-content' tag='DIV' /&gt;" Guid="5e3385c9-72ac-417b-a7b8-a38b41154ea7" InformativeScreenshot="60beb01a2e9e57333cf43c84b29ca032.png" Reference="lafAS4q5aU-WWBd-m7gOCw/NsxuQDYTEUqPWgz6IwIycw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Zaloguj się — Shopify' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                      </uix:NCheckState.Target>
+                    </uix:NCheckState>
                     <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DelayAfter="1" DisplayName="Type Into 'E-mail'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="954,288" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="ec9bf530-4ccc-44d6-86a6-3659cabcb3d0" Version="V5">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="accounts.shopify.com/lookup" ContentHash="tqZiqt85S06QhmuUw6NB-g" DesignTimeRectangle="770, 488, 396, 38" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='account_email' tag='INPUT' /&gt;" Guid="9c2efa00-fe9e-4a54-a316-17632c99c3a5" InformativeScreenshot="ed0cc4374b0c8c34236037c6d4bb0d39.png" IsResponsive="True" Reference="t9abKaAJZkSt2XHEiwb6IQ/2dEmQvUhik6KxiCB8LjPPw" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Zaloguj się w - Shopify' /&gt;" SearchSteps="Selector" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
